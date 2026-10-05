@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.sanbong.controller.RegisterController">
+
+    <VBox styleClass="auth-brand-pane" alignment="CENTER_LEFT" spacing="26" HBox.hgrow="ALWAYS">
+        <padding>
+            <Insets top="60" right="60" bottom="60" left="70"/>
+        </padding>
+        <Label text="ĐẶT LỊCH SÂN BÓNG" styleClass="auth-brand-title" wrapText="true" prefWidth="440"/>
+        <Label text="Nền tảng kết nối khách hàng, chủ sân và quản trị viên trên cùng một hệ thống đặt sân bóng."
+               styleClass="auth-brand-subtitle" wrapText="true" prefWidth="420" maxWidth="420"/>
+
+        <VBox spacing="20" prefWidth="440" maxWidth="440">
+            <VBox.margin>
+                <Insets top="14"/>
+            </VBox.margin>
+            <HBox fx:id="feature1" spacing="14" alignment="CENTER_LEFT"/>
+            <HBox fx:id="feature2" spacing="14" alignment="CENTER_LEFT"/>
+            <HBox fx:id="feature3" spacing="14" alignment="CENTER_LEFT"/>
+            <HBox fx:id="feature4" spacing="14" alignment="CENTER_LEFT"/>
+        </VBox>
+    </VBox>
+
+    <ScrollPane fitToWidth="true" prefWidth="440" minWidth="420" styleClass="auth-form-pane">
+        <VBox alignment="CENTER" spacing="12">
+            <padding>
+                <Insets top="40" right="48" bottom="40" left="48"/>
+            </padding>
+            <Label text="Tạo tài khoản" styleClass="auth-title"/>
+            <Label text="Đăng ký để bắt đầu đặt sân" styleClass="auth-subtitle"/>
+            <VBox spacing="6" maxWidth="Infinity">
+                <Label text="Họ và tên"/>
+                <TextField fx:id="fullNameField" promptText="Nguyễn Văn A"/>
+            </VBox>
+            <VBox spacing="6" maxWidth="Infinity">
+                <Label text="Email"/>
+                <TextField fx:id="emailField" promptText="ban@email.com"/>
+            </VBox>
+            <VBox spacing="6" maxWidth="Infinity">
+                <Label text="Số điện thoại"/>
+                <TextField fx:id="phoneField" promptText="09xxxxxxxx"/>
+            </VBox>
+            <VBox spacing="6" maxWidth="Infinity">
+                <Label text="Mật khẩu"/>
+                <PasswordField fx:id="passwordField" promptText="Tối thiểu 6 ký tự"/>
+            </VBox>
+            <CheckBox fx:id="venueOwnerCheckBox" text="Đăng ký làm chủ sân (cần quản trị viên phê duyệt)" wrapText="true"/>
+            <Label fx:id="errorLabel" styleClass="error-label" wrapText="true" managed="false" visible="false"/>
+            <Button text="Đăng ký" styleClass="btn-primary" maxWidth="Infinity" onAction="#handleRegister"/>
+            <Button text="Đã có tài khoản? Đăng nhập" styleClass="btn-link" onAction="#goToLogin"/>
+        </VBox>
+    </ScrollPane>
+</HBox>

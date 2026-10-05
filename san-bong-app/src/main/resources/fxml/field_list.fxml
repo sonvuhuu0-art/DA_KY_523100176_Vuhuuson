@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
+
+<VBox spacing="14" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.sanbong.controller.FieldListController">
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Tìm theo tên sân..." prefWidth="240"/>
+        <Label text="Loại sân:"/>
+        <ComboBox fx:id="typeFilter" prefWidth="140"/>
+        <Label text="Cụm sân:"/>
+        <ComboBox fx:id="venueFilter" prefWidth="200"/>
+    </HBox>
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="content-area, clear-scroll">
+        <FlowPane fx:id="cardContainer" hgap="16" vgap="16"/>
+    </ScrollPane>
+    <padding>
+        <Insets top="0"/>
+    </padding>
+</VBox>

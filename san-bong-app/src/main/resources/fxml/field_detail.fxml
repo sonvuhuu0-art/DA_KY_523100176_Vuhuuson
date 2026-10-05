@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="14" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.sanbong.controller.FieldDetailController">
+    <Button text="← Quay lại danh sách" styleClass="btn-link" onAction="#goBack"/>
+
+    <StackPane fx:id="imageContainer" maxWidth="Infinity"/>
+
+    <VBox spacing="4">
+        <Label fx:id="fieldNameLabel" styleClass="field-card-title"/>
+        <Label fx:id="venueLabel" styleClass="field-card-sub"/>
+        <Label fx:id="ratingLabel" styleClass="field-card-sub"/>
+        <Label fx:id="descriptionLabel" styleClass="field-card-sub" wrapText="true"/>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Chọn ngày:"/>
+        <DatePicker fx:id="datePicker"/>
+    </HBox>
+
+    <Label text="Khung giờ" styleClass="section-title"/>
+    <FlowPane fx:id="slotContainer" hgap="12" vgap="12"/>
+
+    <VBox spacing="6">
+        <Label text="Ghi chú (không bắt buộc)"/>
+        <TextArea fx:id="noteField" prefRowCount="2" wrapText="true"/>
+    </VBox>
+
+    <Label fx:id="messageLabel" styleClass="error-label" wrapText="true" managed="false" visible="false"/>
+
+    <Button text="Xác nhận đặt sân" styleClass="btn-primary" onAction="#handleBook"/>
+
+    <padding>
+        <Insets bottom="30"/>
+    </padding>
+</VBox>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.sanbong.controller.ShellController">
+    <left>
+        <VBox styleClass="side-menu" prefWidth="220" BorderPane.alignment="CENTER">
+            <HBox styleClass="side-logo" alignment="CENTER_LEFT" spacing="10">
+                <padding>
+                    <Insets left="22" right="22" bottom="26"/>
+                </padding>
+                <StackPane fx:id="logoIconContainer"/>
+                <Label text="SÂN BÓNG" styleClass="side-title"/>
+            </HBox>
+
+            <Button fx:id="btnFieldList" text="Danh sách sân" styleClass="menu-btn" maxWidth="Infinity" onAction="#showFieldList"/>
+            <Button fx:id="btnMyBookings" text="Lịch của tôi" styleClass="menu-btn" maxWidth="Infinity" onAction="#showMyBookings"/>
+            <Button fx:id="btnProfile" text="Tài khoản" styleClass="menu-btn" maxWidth="Infinity" onAction="#showProfile"/>
+
+            <Button fx:id="btnDashboard" text="Tổng quan" styleClass="menu-btn" maxWidth="Infinity" onAction="#showDashboard" managed="false" visible="false"/>
+            <Button fx:id="btnVenueManagement" text="Quản lý cụm sân" styleClass="menu-btn" maxWidth="Infinity" onAction="#showVenueManagement" managed="false" visible="false"/>
+            <Button fx:id="btnFieldManagement" text="Quản lý sân" styleClass="menu-btn" maxWidth="Infinity" onAction="#showFieldManagement" managed="false" visible="false"/>
+            <Button fx:id="btnBookingManagement" text="Quản lý lịch đặt" styleClass="menu-btn" maxWidth="Infinity" onAction="#showBookingManagement" managed="false" visible="false"/>
+            <Button fx:id="btnCustomerManagement" text="Quản lý khách hàng" styleClass="menu-btn" maxWidth="Infinity" onAction="#showCustomerManagement" managed="false" visible="false"/>
+            <Button fx:id="btnVenueOwnerManagement" text="Quản lý chủ sân" styleClass="menu-btn" maxWidth="Infinity" onAction="#showVenueOwnerManagement" managed="false" visible="false"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button fx:id="btnLogout" text="Đăng xuất" styleClass="menu-btn" maxWidth="Infinity" onAction="#handleLogout">
+                <VBox.margin>
+                    <Insets bottom="20"/>
+                </VBox.margin>
+            </Button>
+        </VBox>
+    </left>
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="10" BorderPane.alignment="CENTER">
+            <Label fx:id="viewTitleLabel" text="Danh sách sân" styleClass="top-bar-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <VBox alignment="CENTER_RIGHT" spacing="2">
+                <Label fx:id="userNameLabel" styleClass="user-name"/>
+                <Label fx:id="userRoleLabel" styleClass="user-role-badge"/>
+            </VBox>
+            <Label fx:id="userAvatarLabel" styleClass="avatar-circle"/>
+        </HBox>
+    </top>
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area" BorderPane.alignment="CENTER"/>
+    </center>
+</BorderPane>
