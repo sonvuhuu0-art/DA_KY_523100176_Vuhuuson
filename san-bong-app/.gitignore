@@ -1,0 +1,7 @@
+target/
+dist/
+data.db
+images/
+*.class
+.idea/
+*.iml

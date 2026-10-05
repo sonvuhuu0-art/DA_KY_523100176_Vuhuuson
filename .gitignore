@@ -1,0 +1,26 @@
+# Build output
+san-bong-app/target/
+san-bong-app/dist/
+san-bong-app/installer-output/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Runtime data
+san-bong-app/data.db
+san-bong-app/images/
+
+# Compiled
+*.class
+
+# Maven wrapper
+tools/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# GitHub metadata
+.github/
