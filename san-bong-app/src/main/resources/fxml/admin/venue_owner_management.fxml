@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="14" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.sanbong.controller.admin.VenueOwnerManagementController">
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <Label text="Danh sách chủ sân" styleClass="section-title"/>
+        <TextField fx:id="searchField" promptText="Tìm theo tên hoặc email..." prefWidth="260"/>
+    </HBox>
+    <TableView fx:id="ownerTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colFullName" text="Họ tên" prefWidth="170"/>
+            <TableColumn fx:id="colEmail" text="Email" prefWidth="190"/>
+            <TableColumn fx:id="colPhone" text="Số điện thoại" prefWidth="120"/>
+            <TableColumn fx:id="colStatus" text="Trạng thái" prefWidth="120"/>
+            <TableColumn fx:id="colAction" text="Hành động" prefWidth="180"/>
+        </columns>
+    </TableView>
+</VBox>

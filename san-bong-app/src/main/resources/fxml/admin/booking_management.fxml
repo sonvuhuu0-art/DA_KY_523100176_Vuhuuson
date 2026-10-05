@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="14" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.sanbong.controller.admin.BookingManagementController">
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Tìm theo khách hàng/sân..." prefWidth="220"/>
+        <Label text="Lọc theo ngày:"/>
+        <DatePicker fx:id="dateFilter"/>
+        <Label text="Trạng thái:"/>
+        <ComboBox fx:id="statusFilter" prefWidth="150"/>
+        <Button text="Xóa lọc" styleClass="btn-secondary" onAction="#handleClearFilter"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="+ Đặt hộ khách" styleClass="btn-primary" onAction="#handleWalkInBooking"/>
+    </HBox>
+    <TableView fx:id="bookingTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colCustomer" text="Khách hàng" prefWidth="130"/>
+            <TableColumn fx:id="colField" text="Sân" prefWidth="120"/>
+            <TableColumn fx:id="colDate" text="Ngày" prefWidth="90"/>
+            <TableColumn fx:id="colSlot" text="Khung giờ" prefWidth="100"/>
+            <TableColumn fx:id="colPrice" text="Giá" prefWidth="100"/>
+            <TableColumn fx:id="colStatus" text="Trạng thái" prefWidth="100"/>
+            <TableColumn fx:id="colPayment" text="Thanh toán" prefWidth="100"/>
+            <TableColumn fx:id="colAction" text="Hành động" prefWidth="280"/>
+        </columns>
+    </TableView>
+    <padding>
+        <Insets bottom="10"/>
+    </padding>
+</VBox>

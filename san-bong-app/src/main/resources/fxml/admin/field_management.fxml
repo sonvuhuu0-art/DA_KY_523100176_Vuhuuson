@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox spacing="20" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.sanbong.controller.admin.FieldManagementController">
+
+    <VBox spacing="10" HBox.hgrow="ALWAYS" prefWidth="480">
+        <Label text="Danh sách sân" styleClass="section-title"/>
+        <TableView fx:id="fieldTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colName" text="Tên sân" prefWidth="150"/>
+                <TableColumn fx:id="colVenue" text="Cụm sân" prefWidth="140"/>
+                <TableColumn fx:id="colType" text="Loại" prefWidth="70"/>
+                <TableColumn fx:id="colStatus" text="Trạng thái" prefWidth="110"/>
+            </columns>
+        </TableView>
+
+        <Label text="Thêm / Sửa sân" styleClass="section-title"/>
+        <TextField fx:id="nameField" promptText="Tên sân"/>
+        <ComboBox fx:id="venueCombo" promptText="Chọn cụm sân" maxWidth="Infinity"/>
+        <ComboBox fx:id="typeCombo" promptText="Loại sân" maxWidth="Infinity"/>
+        <ComboBox fx:id="statusCombo" promptText="Trạng thái" maxWidth="Infinity"/>
+        <TextArea fx:id="descriptionField" promptText="Mô tả" prefRowCount="2"/>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <StackPane fx:id="imagePreview"/>
+            <Button text="Chọn ảnh..." styleClass="btn-secondary" onAction="#handleChooseImage"/>
+        </HBox>
+        <HBox spacing="10">
+            <Button text="Lưu" styleClass="btn-primary" onAction="#handleSave"/>
+            <Button text="Xóa" styleClass="btn-secondary" onAction="#handleDelete"/>
+            <Button text="Làm mới form" styleClass="btn-secondary" onAction="#handleClearForm"/>
+        </HBox>
+        <Label fx:id="fieldMessageLabel" styleClass="error-label" wrapText="true" managed="false" visible="false"/>
+    </VBox>
+
+    <VBox spacing="10" HBox.hgrow="ALWAYS" prefWidth="420">
+        <Label fx:id="slotSectionLabel" text="Khung giờ &amp; giá — chọn một sân ở bên trái" styleClass="section-title" wrapText="true"/>
+        <TableView fx:id="slotTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colSlotTime" text="Khung giờ" prefWidth="120"/>
+                <TableColumn fx:id="colSlotDayType" text="Ngày" prefWidth="90"/>
+                <TableColumn fx:id="colSlotPrice" text="Giá" prefWidth="110"/>
+            </columns>
+        </TableView>
+
+        <Label text="Thêm / Sửa khung giờ" styleClass="section-title"/>
+        <HBox spacing="10">
+            <TextField fx:id="startTimeField" promptText="Giờ bắt đầu (HH:mm)"/>
+            <TextField fx:id="endTimeField" promptText="Giờ kết thúc (HH:mm)"/>
+        </HBox>
+        <ComboBox fx:id="dayTypeCombo" promptText="Loại ngày" maxWidth="Infinity"/>
+        <TextField fx:id="priceField" promptText="Giá (VNĐ)"/>
+        <HBox spacing="10">
+            <Button text="Lưu khung giờ" styleClass="btn-primary" onAction="#handleSaveSlot"/>
+            <Button text="Xóa khung giờ" styleClass="btn-secondary" onAction="#handleDeleteSlot"/>
+        </HBox>
+        <Label fx:id="slotMessageLabel" styleClass="error-label" wrapText="true" managed="false" visible="false"/>
+    </VBox>
+
+    <padding>
+        <Insets bottom="20"/>
+    </padding>
+</HBox>

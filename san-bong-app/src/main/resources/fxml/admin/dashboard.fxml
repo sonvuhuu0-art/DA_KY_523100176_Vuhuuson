@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="20" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.sanbong.controller.admin.DashboardController">
+    <HBox spacing="16">
+        <VBox styleClass="stat-card, stat-card-revenue" spacing="6">
+            <Label text="💰" styleClass="stat-icon"/>
+            <Label text="Doanh thu tháng này" styleClass="stat-label"/>
+            <Label fx:id="revenueLabel" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card, stat-card-bookings" spacing="6">
+            <Label text="📅" styleClass="stat-icon"/>
+            <Label text="Lịch đặt hôm nay" styleClass="stat-label"/>
+            <Label fx:id="todayBookingsLabel" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card, stat-card-occupancy" spacing="6">
+            <Label text="📈" styleClass="stat-icon"/>
+            <Label text="Tỷ lệ lấp đầy sân hôm nay" styleClass="stat-label"/>
+            <Label fx:id="occupancyLabel" styleClass="stat-value"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="20">
+        <VBox styleClass="stat-card" spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Trạng thái lịch đặt (tất cả)" styleClass="section-title"/>
+            <PieChart fx:id="statusPieChart" legendVisible="true"/>
+        </VBox>
+        <VBox styleClass="stat-card" spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Số lịch đặt theo sân" styleClass="section-title"/>
+            <BarChart fx:id="fieldBarChart" legendVisible="false">
+                <xAxis>
+                    <CategoryAxis label="Sân" side="BOTTOM"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Số lượt đặt" side="LEFT"/>
+                </yAxis>
+            </BarChart>
+        </VBox>
+    </HBox>
+
+    <VBox styleClass="stat-card" spacing="6">
+        <Label text="Doanh thu theo ngày (tháng này)" styleClass="section-title"/>
+        <LineChart fx:id="revenueTrendChart" legendVisible="false" prefHeight="240">
+            <xAxis>
+                <CategoryAxis label="Ngày" side="BOTTOM"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Doanh thu (đ)" side="LEFT"/>
+            </yAxis>
+        </LineChart>
+    </VBox>
+</VBox>
